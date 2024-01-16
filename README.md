@@ -1,11 +1,22 @@
-Knowledge Distillation Through Time (KDTT) For Future Event Prediction
+# Knowledge Distillation Through Time For Future Event Prediction #
 
-This github repository will allow a user to perform KDTT on the CHBMIT seizure dataset. 
+This repository contains code from the following paper: Skye Gunasekaran, Jason K. Eshraghian, Ruomin Zhu, Zdenka Kuncic "Knowledge Distillation Through Time For Future Event Prediction". {insert link} {insert date}.
 
-The folder "models" describes both the teacher and student model, which are convolutional LSTMS. The only difference between these two models is that the teacher performs max pooling, wheras the student performs average pooling. 
+## Requirements ## 
 
-The folder "utils" is incredibly important, and contains all of the preprocessing and data loading for this project. Within the "utils" folder, we have the sinal processing for the student and teacher, the data splitting, as well as some additionall helper files. As mentioned in the paper, we have a seizure occurence period of 30 minutes, and a seizure prediction horizon of 5 minutes, and this can be found within the singal processing files. These files depend on a sampling csv file which will be located in the main repository of the project. 
+Inidividual module requirements for the project can be found within the file "requirements.txt". The version of Python used was 3.11.7. The verson of CUDA used was 12.1 on Windows 11.
 
-The folder "dataset" will contain the CHBMIT dataset. Additionally, we have placed some necessary files within the folder which will be called on during the preprocessing stage.
+## Code Execution ##
 
-Main.py is the executable for the program, and contains the training for both the student and teacher, as well as the hyperparameters. For a brief explaination, the parameter alpha determines the scaling of the the cross entropy, beta determines with the scaling of the distillation loss, temperature affects the Kullback Leibler loss function, and epochs are the number of training cycles for each patient. 
+The programs main code, including parameters and the training loop, can be found in "Main.py". Before running the code, ensure that the CHBMIT dataset has been downloaded and placed within the "Dataset" folder. It can be found at this link: https://physionet.org/content/chbmit/1.0.0/. There are three different experiments that can be performed, namely, KL Divergence, Mean Square Error, and the Baseline student. These can be decided using the argument parser "--mode={experiment type}', where {experiment type} can have the values of "KL", "MSE", or "baseline". 
+
+## Parameter Tuning ## 
+
+As mentioned in our paper, we use key three parameters in KDTT for the distillation process, alpha, beta, and temperature. 
+* Alpha: scales the cross-entroy loss
+* Beta: scales the distillation loss
+* Temperature: scales the softmax for KL loss. 
+
+## Preprocessing Details ##
+
+Finer details of the project, including the preprocessing code, can be found within the "utils" folder. This folder contains the preprocessing for both the teacher and student models. In summary, we first classify the data as either preictal, ictal or interical. Then, we take short time fourier transforms at a sampling rate of 256hz, and convert this into a numpy array. For the student model, we use a seizure occurence period of 30 minutes, and a seizure prediction horizon of 5 minutes. Our models are Convolutional LSTMs, and can be found within the folder "models".
