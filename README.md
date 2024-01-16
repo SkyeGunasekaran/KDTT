@@ -2,7 +2,7 @@
 
 ## Requirements ## 
 
-Inidividual module requirements for the project can be found within the file "requirements.txt". The version of Python used was 3.11.7. The verson of CUDA used was 12.1 on Windows 11.
+Inidividual module requirements for the project can be found within the file "requirements.txt". The version of Python used was 3.11.7. The verson of CUDA used was 12.1.
 
 ## Dataset Description ##
 
