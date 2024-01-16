@@ -10,7 +10,9 @@ For our paper, we used the CHBMIT dataset. This dataset consists of 23 patients 
 
 ## Code Execution ##
 
-The programs main code, including parameters and the training loop, can be found in "main.py". There are three different experiments that can be performed, namely, KL Divergence, Mean Square Error, and the Baseline student. These can be decided using the argument parser "--mode={experiment type}', where {experiment type} can have the values of "KL", "MSE", or "baseline". When running the baseline detector, the teacher model as a whole will be ignored. An example of a full execution would be: 'python main.py --mode=KL'.
+The programs main code, including parameters and the training loop, can be found in "main.py". There are three different experiments that can be performed, namely, KL Divergence, Mean Square Error, and the Baseline student. These can be decided using the argument parser "--mode={experiment type}', where {experiment type} can have the values of "KL", "MSE", or "baseline". When running the baseline detector, the teacher model as a whole will be ignored. An example of a full execution would be: 
+
+```python main.py --mode=KL```
 
 ## Parameter Tuning ## 
 
