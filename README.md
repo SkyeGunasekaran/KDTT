@@ -1,18 +1,16 @@
 # Knowledge Distillation Through Time For Future Event Prediction #
 
-This repository contains code from the following paper: Skye Gunasekaran, Jason K. Eshraghian, Ruomin Zhu, Zdenka Kuncic "Knowledge Distillation Through Time For Future Event Prediction". {insert link} {insert date}.
-
 ## Requirements ## 
 
 Inidividual module requirements for the project can be found within the file "requirements.txt". The version of Python used was 3.11.7. The verson of CUDA used was 12.1 on Windows 11.
 
 ## Dataset Description ##
 
-For our paper, we used the CHBMIT dataset. This dataset consists of 23 patients taken from the Childrens Hospital Boston. Each patient has intercranial EEG recordings varying in length, the amount of seizures, and channels. The full dataset is approximately 50GB, and can be downloaded at https://physionet.org/content/chbmit/1.0.0/. Once the dataset has been downloaded, please place each of the patient data folders within the "Dataset" folder. Although there are 23 patients in total, we train only on a select few which have enough preictal data to train on, these can be found within "Main.py". 
+For our paper, we used the CHBMIT dataset. This dataset consists of 23 patients taken from the Childrens Hospital Boston. Each patient has intercranial EEG recordings varying in length, the amount of seizures, and channels. The full dataset is approximately 50GB, and can be downloaded at https://physionet.org/content/chbmit/1.0.0/. Once the dataset has been downloaded, please place each of the patient data folders within the "Dataset" folder. Although there are 23 patients in total, we train only on a select few which have enough preictal data to train on, these can be found within "main.py". 
 
 ## Code Execution ##
 
-The programs main code, including parameters and the training loop, can be found in "Main.py". There are three different experiments that can be performed, namely, KL Divergence, Mean Square Error, and the Baseline student. These can be decided using the argument parser "--mode={experiment type}', where {experiment type} can have the values of "KL", "MSE", or "baseline". 
+The programs main code, including parameters and the training loop, can be found in "main.py". There are three different experiments that can be performed, namely, KL Divergence, Mean Square Error, and the Baseline student. These can be decided using the argument parser "--mode={experiment type}', where {experiment type} can have the values of "KL", "MSE", or "baseline". When running the baseline detector, the teacher model as a whole will be ignored. An example of a full execution would be: 'python main.py --mode=KL'.
 
 ## Parameter Tuning ## 
 
