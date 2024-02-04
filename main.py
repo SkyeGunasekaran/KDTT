@@ -59,7 +59,7 @@ def main(distillation):
             Y_train       = torch.tensor(y_train).type(torch.LongTensor).to('cuda')
             X_train       = torch.tensor(X_train).type(torch.FloatTensor).to('cuda')
             train_dataset = TensorDataset(X_train, Y_train)
-            train_loader_teacher  = DataLoader(dataset=train_dataset, batch_size=32, shuffle=True)
+            train_loader_teacher  = DataLoader(dataset=train_dataset, batch_size=32, shuffle=False)
         
             if X_val is not None and y_val is not None:
                 y_val       = torch.tensor(y_val).type(torch.LongTensor)
@@ -109,7 +109,7 @@ def main(distillation):
         Y_train       = torch.tensor(y_train).type(torch.LongTensor).to('cuda')
         X_train       = torch.tensor(X_train).type(torch.FloatTensor).to('cuda')
         train_dataset = TensorDataset(X_train, Y_train)
-        train_loader  = DataLoader(dataset=train_dataset, batch_size=32, shuffle=True)
+        train_loader  = DataLoader(dataset=train_dataset, batch_size=32, shuffle=False)
         
         if X_val is not None and y_val is not None:
             y_val       = torch.tensor(y_val).type(torch.LongTensor)
