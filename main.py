@@ -28,9 +28,20 @@ def main(distillation):
     torch.cuda.empty_cache()
     
     #hyperparameters
-    T = 4
-    alpha = 0.6
-    beta = 0.5    
+     #KL DIVERGENCE
+
+    T= 4.368139630818435
+    alpha = 0.7710264559876925
+    beta = 0.6016700974253741
+    #T = 3.8737439991546254
+    #alpha = 0.5783169177149473
+    #beta = 0.546073477197235
+
+    #MSE LOSS
+    #alpha = 0.710532421648642
+    #beta = 0.5300272817926787
+    #alpha = 0.7489701586946306
+    #beta = 0.6083259864395628
     epochs=25
 
     #Prepare settings and storage
